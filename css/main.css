@@ -6,7 +6,63 @@
 }
 
 body{
-    color: #000;
-    font-family: sans-serif;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    background-image: url(https://cdn.pixabay.com/photo/2019/09/24/17/26/metro-4501839_1280.jpg);
+    background-size: cover;
 }
+
+/* UTILITIES */
+
+
+
+/* Buttons */
+
+.btn-start{
+    min-width:100px;
+    padding: 5px;
+    color: #f8c100;
+    background-color: #7c93cd;
+    border: 1px solid #f8c100;
+    border-radius:10px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+}
+/* Logo */
+
+.logo img{
+    width: 100px;
+    position: fixed;
+    top:2%;
+    left: 2%;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    height: 100%;
+    position:relative;
+}
+
+h1,h3,h5{
+    padding: 10px;
+    color: #f8c100;
+}
+
+
+/* Box Biglietto */
+.box{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #f8c100;
+    background-color: rgba(0, 0, 0, .3);
+}
+
 

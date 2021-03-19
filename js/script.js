@@ -6,7 +6,7 @@
 
 // 4 Calcolo eventuale scontistica
 
-// 4 Mostrare a schermo prezzo 
+// 5 Mostrare a schermo prezzo 
 
 /* Condizioni di viaggio
  - 0,21 € al Km
@@ -15,36 +15,64 @@
  */
 
 
-// FASE 1
+// ACCESSO ALLA RICHIESTA DEL BIGLIETTO 
 
-var percorso = prompt('Quanti Km vuoi percorrere?');
-console.log('Km da percorrere', percorso);
+alert('Benvenuto, clicca ok per procedere con il biglietto');
 
-// FASE 2
+function myFunction(){
 
-var age = prompt('Età passeggero');
-console.log('Età passegero', age);
+    // FASE 1 Richiesta Km da percorrere
+    var percorso = prompt('Quanti Km vuoi percorrere?');
+    console.log('Km da percorrere', percorso);
 
-// FASE 3
+    // FASE 2 Richiesta età passeggero
+    
+    var age = prompt('Età passeggero');
+    console.log('Età passegero', age);
+    if (age < 18){
+        document.getElementById('sconto').innerHTML = "Hai diritto ad uno sconto del 20%";
+    } else if (age > 65){
+        document.getElementById('sconto').innerHTML = "Hai diritto ad uno sconto del 40%";
+    } else {
+        document.getElementById('sconto').innerHTML = "Spiacente, non hai diritto a sconti";
+    }
 
-var costoTotale = percorso * 0.21;
-console.log('Spesa totale', costoTotale);
+    // FASE 3 Calcolo Costo Totale
+    
+    var costoTotale = percorso * 0.21;
+    console.log('Spesa totale', costoTotale);
 
-// FASE 4
+    // FASE 4 e 5 Verifica e calcolo eventuale scontistica, con visualizzazione a schermo.
+    
+    
+    if (age < 18) {
+        console.log('Minorenne');
+        var scontoMinorenne = costoTotale * ( 20 / 100);
+        var prezzoScontatoMinorenne = costoTotale - scontoMinorenne;
+        console.log('Il prezzo scontato è ', prezzoScontatoMinorenne.toFixed(2) );
+        document.getElementById('prezzo').innerHTML = 'Il prezzo scontato è di: ' +  prezzoScontatoMinorenne.toFixed(2) + '€';
+        document.getElementById('totale').innerHTML = 'Prezzo complessivo pari a: ' + costoTotale.toFixed(2) + '€';
 
+    } else if (age > 65) {
+        console.log('Over 65');
+        var scontoOver65 = costoTotale.toFixed(2) * ( 40 / 100);
+        var prezzoScontatoOver65 = costoTotale - scontoOver65;
+        console.log('Il prezzo scontato è ', prezzoScontatoOver65.toFixed(2) );
+        document.getElementById('prezzo').innerHTML = 'Il prezzo scontato è di ' + prezzoScontatoOver65.toFixed(2) + '€';
+        document.getElementById('totale').innerHTML = 'Prezzo complessivo pari a: ' + costoTotale.toFixed(2) + '€';
 
-if (age < 18) {
-    console.log('Minorenne');
-    var scontoMinorenne = costoTotale * ( 20 / 100);
-    var prezzoScontatoMinorenne = costoTotale - scontoMinorenne;
-    console.log('Il prezzo scontato è ', prezzoScontatoMinorenne.toFixed(2) );
-} else if (age > 65) {
-    console.log('Over 65');
-    var scontoOver65 = costoTotale.toFixed(2) * ( 40 / 100);
-    var prezzoScontatoOver65 = costoTotale - scontoOver65;
-    console.log('Il prezzo scontato è ', prezzoScontatoOver65.toFixed(2) );
-} else {
-    console.log('Nessuno sconto', costoTotale.toFixed(2));
+    
+    } else {
+        console.log('Nessuno sconto', costoTotale.toFixed(2));
+        document.getElementById('prezzo').innerHTML = ' Il totale da pagare è di: ' + costoTotale.toFixed(2) + '€';
+    
+    }
+
 }
+
+
+
+
+
 
 
