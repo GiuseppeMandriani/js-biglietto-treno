@@ -37,14 +37,14 @@ if (age < 18) {
     console.log('Minorenne');
     var scontoMinorenne = costoTotale * ( 20 / 100);
     var prezzoScontatoMinorenne = costoTotale - scontoMinorenne;
-    console.log('Il prezzo scontato è ', prezzoScontatoMinorenne);
+    console.log('Il prezzo scontato è ', prezzoScontatoMinorenne.toFixed(2) );
 } else if (age > 65) {
     console.log('Over 65');
-    var scontoOver65 = costoTotale * ( 40 / 100);
+    var scontoOver65 = costoTotale.toFixed(2) * ( 40 / 100);
     var prezzoScontatoOver65 = costoTotale - scontoOver65;
-    console.log('Il prezzo scontato è ', prezzoScontatoOver65);
+    console.log('Il prezzo scontato è ', prezzoScontatoOver65.toFixed(2) );
 } else {
-    console.log('Nessuno sconto', costoTotale)
+    console.log('Nessuno sconto', costoTotale.toFixed(2));
 }
 
 
