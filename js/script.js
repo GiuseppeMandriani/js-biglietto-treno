@@ -22,13 +22,19 @@ alert('Benvenuto, clicca ok per procedere con il biglietto');
 function myFunction(){
 
     // FASE 1 Richiesta Km da percorrere
-    var percorso = prompt('Quanti Km vuoi percorrere?');
+    var percorso = parseInt(prompt('Quanti Km vuoi percorrere?'));
     console.log('Km da percorrere', percorso);
 
     // FASE 2 Richiesta età passeggero
     
-    var age = prompt('Età passeggero');
+    var age = parseInt(prompt('Età passeggero'));
     console.log('Età passegero', age);
+
+    if (isNaN(percorso) || isNaN(age)){
+        alert('Errore!! Dati non corretti');
+    }
+
+
     if (age < 18){
         document.getElementById('sconto').innerHTML = "Hai diritto ad uno sconto del 20%";
     } else if (age > 65){
@@ -39,7 +45,7 @@ function myFunction(){
 
     // FASE 3 Calcolo Costo Totale
     
-    var costoTotale = percorso * 0.21;
+    var costoTotale = 0.21 * percorso;
     console.log('Spesa totale', costoTotale);
 
     // FASE 4 e 5 Verifica e calcolo eventuale scontistica, con visualizzazione a schermo.
